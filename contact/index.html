@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - I.B.G Institut</title>
+    <meta name="description" content="Contactez I.B.G Institut pour vos projets de formation, conseil et accompagnement d'entreprise. Nos experts vous répondent rapidement.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                    <span class="ml-3 text-xl font-bold text-primary-900">I.B.G</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Accueil</a>
+                    <a href="../about/index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Qui sommes-nous</a>
+                    <a href="../services/conseil.html" class="text-gray-700 hover:text-primary-600 transition-colors">Services</a>
+                    <a href="../formations/catalogue.html" class="text-gray-700 hover:text-primary-600 transition-colors">Formations</a>
+                    <a href="../evenements/agenda.html" class="text-gray-700 hover:text-primary-600 transition-colors">Événements</a>
+                    <a href="#" class="text-primary-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="lg:hidden">
+                    <button id="hamburger" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Accueil</a>
+                <a href="../about/index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Qui sommes-nous</a>
+                <a href="../services/conseil.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Services</a>
+                <a href="../formations/catalogue.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Formations</a>
+                <a href="../evenements/agenda.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Événements</a>
+                <a href="#" class="block px-3 py-2 text-primary-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center animate-on-scroll">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6">Contactez-Nous</h1>
+                <p class="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Nos experts sont à votre disposition pour répondre à vos questions et vous accompagner dans vos projets
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Principal -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Formulaire de Contact -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Envoyez-nous un Message</h2>
+                    <p class="text-gray-600 mb-8">
+                        Remplissez ce formulaire et nous vous répondrons dans les plus brefs délais. 
+                        Tous les champs marqués d'un * sont obligatoires.
+                    </p>
+                    
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">Prénom *</label>
+                                <input type="text" id="firstName" name="firstName" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Nom *</label>
+                                <input type="text" id="lastName" name="lastName" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
+                                <input type="tel" id="phone" name="phone"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Entreprise</label>
+                                <input type="text" id="company" name="company"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="position" class="block text-sm font-medium text-gray-700 mb-2">Fonction</label>
+                                <input type="text" id="position" name="position"
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Sujet *</label>
+                            <select id="subject" name="subject" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors">
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="formation">Demande de formation</option>
+                                <option value="conseil">Conseil aux entreprises</option>
+                                <option value="accompagnement">Accompagnement de projet</option>
+                                <option value="partenariat">Partenariat</option>
+                                <option value="evenement">Événement / Conférence</option>
+                                <option value="autre">Autre demande</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="message" name="message" rows="6" required
+                                      placeholder="Décrivez votre projet, vos besoins ou votre demande..."
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-vertical"></textarea>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" id="consent" name="consent" required
+                                   class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                            <label for="consent" class="ml-3 text-sm text-gray-600">
+                                J'accepte que mes données personnelles soient utilisées pour traiter ma demande. 
+                                <a href="#" class="text-primary-600 hover:text-primary-700 underline">Politique de confidentialité</a>
+                            </label>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" id="newsletter" name="newsletter"
+                                   class="mt-1 h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                            <label for="newsletter" class="ml-3 text-sm text-gray-600">
+                                Je souhaite recevoir la newsletter et les informations sur les événements I.B.G
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-lg py-4">
+                            <i class="fas fa-paper-plane mr-2"></i>Envoyer le Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Informations de Contact -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Nos Coordonnées</h2>
+                    
+                    <div class="space-y-8">
+                        <!-- Adresse Principale -->
+                        <div class="card">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-primary-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Siège Social</h3>
+                                    <p class="text-gray-600">
+                                        123 Rue de l'Innovation<br>
+                                        75001 Paris, France
+                                    </p>
+                                    <a href="https://maps.google.com" target="_blank" 
+                                       class="inline-flex items-center text-primary-600 hover:text-primary-700 mt-2">
+                                        <i class="fas fa-external-link-alt mr-2"></i>Voir sur la carte
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Téléphone -->
+                        <div class="card">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-phone text-green-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Téléphone</h3>
+                                    <p class="text-gray-600 mb-2">
+                                        <a href="tel:+33123456789" class="hover:text-primary-600">+33 1 23 45 67 89</a>
+                                    </p>
+                                    <p class="text-sm text-gray-500">
+                                        Lundi - Vendredi : 9h00 - 18h00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="card">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Email</h3>
+                                    <div class="space-y-1">
+                                        <p class="text-gray-600">
+                                            <a href="mailto:contact@ibg-institut.com" class="hover:text-primary-600">contact@ibg-institut.com</a>
+                                        </p>
+                                        <p class="text-gray-600">
+                                            <a href="mailto:formations@ibg-institut.com" class="hover:text-primary-600">formations@ibg-institut.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Horaires -->
+                        <div class="card">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-clock text-orange-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-bold text-gray-900 mb-2">Horaires d'Ouverture</h3>
+                                    <div class="space-y-1 text-gray-600">
+                                        <p>Lundi - Vendredi : 9h00 - 18h00</p>
+                                        <p>Samedi : 9h00 - 12h00</p>
+                                        <p>Dimanche : Fermé</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Réseaux Sociaux -->
+                    <div class="mt-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4">Suivez-nous</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-400 text-white rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-700 text-white rounded-lg flex items-center justify-center hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-pink-600 text-white rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carte -->
+    <section class="bg-gray-50">
+        <div class="h-96 bg-gray-300 relative">
+            <!-- Ici vous intégreriez une vraie carte Google Maps ou OpenStreetMap -->
+            <div class="absolute inset-0 flex items-center justify-center bg-gray-200">
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt text-6xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600">Carte interactive</p>
+                    <p class="text-sm text-gray-500">123 Rue de l'Innovation, 75001 Paris</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autres Moyens de Contact -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Autres Moyens de Nous Contacter</h2>
+                <p class="text-xl text-gray-600">Choisissez le canal qui vous convient le mieux</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Rendez-vous -->
+                <div class="card text-center animate-on-scroll">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-check text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Prendre Rendez-vous</h3>
+                    <p class="text-gray-600 mb-4">
+                        Planifiez un entretien personnalisé avec nos experts pour discuter de vos besoins spécifiques.
+                    </p>
+                    <a href="#" class="btn-primary">Réserver un Créneau</a>
+                </div>
+                
+                <!-- Chat en Ligne -->
+                <div class="card text-center animate-on-scroll">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-comments text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Chat en Ligne</h3>
+                    <p class="text-gray-600 mb-4">
+                        Obtenez des réponses immédiates à vos questions grâce à notre service de chat en direct.
+                    </p>
+                    <button class="btn-primary" onclick="openChat()">Démarrer le Chat</button>
+                </div>
+                
+                <!-- FAQ -->
+                <div class="card text-center animate-on-scroll">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-question-circle text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">FAQ</h3>
+                    <p class="text-gray-600 mb-4">
+                        Consultez notre foire aux questions pour trouver rapidement les réponses que vous cherchez.
+                    </p>
+                    <a href="#faq" class="btn-outline">Voir la FAQ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-gray-50 section-padding">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Questions Fréquentes</h2>
+                <p class="text-xl text-gray-600">Trouvez rapidement les réponses à vos questions</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item card animate-on-scroll">
+                    <button class="faq-question w-full text-left flex items-center justify-between p-6 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-900">Comment puis-je m'inscrire à une formation ?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">
+                            Vous pouvez vous inscrire directement en ligne via notre catalogue de formations, 
+                            par téléphone au +33 1 23 45 67 89, ou en nous envoyant un email. 
+                            Nous vous confirmerons vo</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card animate-on-scroll">
+                    <button class="faq-question w-full text-left flex items-center justify-between p-6 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-900">Quels sont vos délais de réponse ?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">
+                            Nous nous engageons à répondre à toutes les demandes dans un délai de 24h ouvrées. 
+                            Pour les demandes urgentes, n'hésitez pas à nous appeler directement.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card animate-on-scroll">
+                    <button class="faq-question w-full text-left flex items-center justify-between p-6 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-900">Proposez-vous des formations sur mesure ?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">
+                            Oui, nous concevons des programmes de formation personnalisés selon vos besoins spécifiques. 
+                            Contactez-nous pour discuter de vos objectifs et nous élaborerons une solution adaptée.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card animate-on-scroll">
+                    <button class="faq-question w-full text-left flex items-center justify-between p-6 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-900">Vos formations sont-elles éligibles au CPF ?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">
+                            La plupart de nos formations sont éligibles au CPF (Compte Personnel de Formation). 
+                            Vous trouverez cette information sur chaque fiche formation ou contactez-nous pour vérification.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card animate-on-scroll">
+                    <button class="faq-question w-full text-left flex items-center justify-between p-6 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-900">Intervenez-vous dans toute la France ?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">
+                            Oui, nous intervenons sur tout le territoire français. Nous proposons également des formations 
+                            à distance et des solutions hybrides pour s'adapter à vos contraintes géographiques.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item card animate-on-scroll">
+                    <button class="faq-question w-full text-left flex items-center justify-between p-6 focus:outline-none">
+                        <span class="text-lg font-medium text-gray-900">Comment obtenir un devis ?</span>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">
+                            Vous pouvez demander un devis en remplissant notre formulaire de contact en précisant vos besoins, 
+                            ou en nous appelant directement. Nous vous enverrons une proposition détaillée sous 48h.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary-600 text-white section-padding">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h2 class="text-3xl font-bold mb-4">Une Question Urgente ?</h2>
+            <p class="text-xl text-primary-100 mb-8">
+                Notre équipe est disponible pour vous répondre immédiatement
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:+33123456789" class="bg-white text-primary-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-phone mr-2"></i>Appeler Maintenant
+                </a>
+                <button onclick="openChat()" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-4 px-8 rounded-lg transition-all duration-200">
+                    <i class="fas fa-comments mr-2"></i>Chat en Direct
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                        <span class="ml-3 text-xl font-bold">I.B.G</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Institut spécialisé dans l'accompagnement des entreprises, la formation professionnelle et le développement du secteur privé.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../services/conseil.html" class="text-gray-300 hover:text-white transition-colors">Conseil aux entreprises</a></li>
+                        <li><a href="../formations/catalogue.html" class="text-gray-300 hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Gestion de projet</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Accompagnement</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Rapide</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            <a href="tel:+33123456789" class="hover:text-white">+33 1 23 45 67 89</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            <a href="mailto:contact@ibg-institut.com" class="hover:text-white">contact@ibg-institut.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary-400 mt-1"></i>
+                            <span>123 Rue de l'Innovation<br>75001 Paris</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 I.B.G Institut. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget (simulé) -->
+    <div id="chatWidget" class="fixed bottom-6 right-6 z-50 hidden">
+        <div class="bg-white rounded-lg shadow-2xl w-80 max-h-96 flex flex-col">
+            <div class="bg-primary-600 text-white p-4 rounded-t-lg flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+                    <span class="font-medium">Support I.B.G</span>
+                </div>
+                <button onclick="closeChat()" class="text-white hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-4 flex-1 overflow-y-auto">
+                <div class="space-y-3">
+                    <div class="bg-gray-100 p-3 rounded-lg">
+                        <p class="text-sm">Bonjour ! Comment puis-je vous aider aujourd'hui ?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t">
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Tapez votre message..." 
+                           class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    <button class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bouton Chat Flottant -->
+    <button id="chatButton" onclick="openChat()" 
+            class="fixed bottom-6 right-6 bg-primary-600 text-white w-14 h-14 rounded-full shadow-lg hover:bg-primary-700 transition-all duration-200 z-40 flex items-center justify-center">
+        <i class="fas fa-comments text-xl"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulation d'envoi
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Envoyé !';
+                submitBtn.classList.remove('btn-primary');
+                submitBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add('btn-primary');
+                    submitBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    e.target.reset();
+                }, 2000);
+            }, 2000);
+        });
+        
+        // Gestion de la FAQ
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = this.querySelector('i');
+                
+                // Fermer toutes les autres FAQ
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.querySelector('.faq-answer').classList.add('hidden');
+                        item.querySelector('.faq-question i').classList.remove('rotate-180');
+                    }
+                });
+                
+                // Toggle la FAQ actuelle
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Gestion du chat
+        function openChat() {
+            document.getElementById('chatWidget').classList.remove('hidden');
+            document.getElementById('chatButton').classList.add('hidden');
+        }
+        
+        function closeChat() {
+            document.getElementById('chatWidget').classList.add('hidden');
+            document.getElementById('chatButton').classList.remove('hidden');
+        }
+        
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

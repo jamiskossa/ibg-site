@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue de Formations - I.B.G Institut</title>
+    <meta name="description" content="Découvrez notre catalogue de formations professionnelles : management, digital, commercial, qualité et bien plus.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                    <span class="ml-3 text-xl font-bold text-primary-900">I.B.G</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Accueil</a>
+                    <a href="../about/index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Qui sommes-nous</a>
+                    <a href="../services/conseil.html" class="text-gray-700 hover:text-primary-600 transition-colors">Services</a>
+                    <a href="#" class="text-primary-600 font-medium">Formations</a>
+                    <a href="../evenements/agenda.html" class="text-gray-700 hover:text-primary-600 transition-colors">Événements</a>
+                    <a href="../contact/index.html" class="btn-primary">Contact</a>
+                </div>
+                
+                <div class="lg:hidden">
+                    <button id="hamburger" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-900 to-primary-600 text-white pt-16">
+        <div class="max-w-7xl mx-auto section-padding">
+            <div class="text-center animate-on-scroll">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6">Catalogue de Formations</h1>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Développez vos compétences avec nos formations professionnelles certifiantes
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="bg-white shadow-sm sticky top-16 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="flex items-center">
+                    <label class="text-sm font-medium text-gray-700 mr-2">Catégorie:</label>
+                    <select id="categoryFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                        <option value="">Toutes</option>
+                        <option value="management">Management</option>
+                        <option value="digital">Digital</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="qualite">Qualité</option>
+                        <option value="finance">Finance</option>
+                        <option value="rh">Ressources Humaines</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center">
+                    <label class="text-sm font-medium text-gray-700 mr-2">Durée:</label>
+                    <select id="durationFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                        <option value="">Toutes</option>
+                        <option value="1">1 jour</option>
+                        <option value="2">2 jours</option>
+                        <option value="3">3 jours</option>
+                        <option value="5">1 semaine</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center">
+                    <label class="text-sm font-medium text-gray-700 mr-2">Format:</label>
+                    <select id="formatFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                        <option value="">Tous</option>
+                        <option value="presentiel">Présentiel</option>
+                        <option value="distanciel">Distanciel</option>
+                        <option value="hybride">Hybride</option>
+                    </select>
+                </div>
+                
+                <div class="flex-1">
+                    <input type="text" id="searchInput" placeholder="Rechercher une formation..." 
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Grid -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div id="formations-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Formation 1 -->
+                <div class="formation-card card animate-on-scroll" data-category="management" data-duration="2" data-format="presentiel">
+                    <div class="relative mb-4">
+                        <img src="../assets/images/logo.png" alt="Formation Management" class="w-full h-48 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">Management</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-800 px-2 py-1 rounded text-xs font-medium">2 jours</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Leadership et Management d'Équipe</h3>
+                    <p class="text-gray-600 mb-4">Développez vos compétences de leader et apprenez à manager efficacement vos équipes.</p>
+                    
+                    <div class="flex items-center mb-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">15-16 Mars 2024</span>
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Paris</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(24 avis)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-primary-600">1 200€</div>
+                            <div class="text-sm text-gray-500">HT par personne</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Certifiante</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">CPF</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Présentiel</span>
+                    </div>
+                    
+                    <a href="formation-detail.html?id=1" class="btn-primary w-full text-center">Voir les détails</a>
+                </div>
+
+                <!-- Formation 2 -->
+                <div class="formation-card card animate-on-scroll" data-category="digital" data-duration="3" data-format="hybride">
+                    <div class="relative mb-4">
+                        <img src="../assets/images/logo.png" alt="Formation Digital" class="w-full h-48 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-secondary-500 text-white px-3 py-1 rounded-full text-sm font-medium">Digital</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-800 px-2 py-1 rounded text-xs font-medium">3 jours</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Transformation Digitale</h3>
+                    <p class="text-gray-600 mb-4">Maîtrisez les enjeux de la transformation digitale et pilotez le changement dans votre organisation.</p>
+                    
+                    <div class="flex items-center mb-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">22-24 Mars 2024</span>
+                        <i class="fas fa-laptop mr-2"></i>
+                        <span>Hybride</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(18 avis)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-secondary-600">1 800€</div>
+                            <div class="text-sm text-gray-500">HT par personne</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Certifiante</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">CPF</span>
+                        <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded">Hybride</span>
+                    </div>
+                    
+                    <a href="formation-detail.html?id=2" class="btn-primary w-full text-center">Voir les détails</a>
+                </div>
+
+                <!-- Formation 3 -->
+                <div class="formation-card card animate-on-scroll" data-category="commercial" data-duration="2" data-format="presentiel">
+                    <div class="relative mb-4">
+                        <img src="../assets/images/logo.png" alt="Formation Commercial" class="w-full h-48 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">Commercial</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-800 px-2 py-1 rounded text-xs font-medium">2 jours</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Techniques de Vente Avancées</h3>
+                    <p class="text-gray-600 mb-4">Perfectionnez vos techniques de vente et développez votre performance commerciale.</p>
+                    
+                    <div class="flex items-center mb-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">5-6 Avril 2024</span>
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Lyon</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(31 avis)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-purple-600">1 400€</div>
+                            <div class="text-sm text-gray-500">HT par personne</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Certifiante</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">CPF</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Présentiel</span>
+                    </div>
+                    
+                    <a href="formation-detail.html?id=3" class="btn-primary w-full text-center">Voir les détails</a>
+                </div>
+
+                <!-- Formation 4 -->
+                <div class="formation-card card animate-on-scroll" data-category="qualite" data-duration="3" data-format="presentiel">
+                    <div class="relative mb-4">
+                        <img src="../assets/images/formation-qualite.jpg" alt="Formation Qualité" class="w-full h-48 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">Qualité</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-800 px-2 py-1 rounded text-xs font-medium">3 jours</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Certification ISO 9001</h3>
+                    <p class="text-gray-600 mb-4">Maîtrisez les exigences de la norme ISO 9001 et pilotez votre système qualité.</p>
+                    
+                    <div class="flex items-center mb-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">12-14 Avril 2024</span>
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Marseille</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(15 avis)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-green-600">2 100€</div>
+                            <div class="text-sm text-gray-500">HT par personne</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Certifiante</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">CPF</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Présentiel</span>
+                    </div>
+                    
+                    <a href="formation-detail.html?id=4" class="btn-primary w-full text-center">Voir les détails</a>
+                </div>
+
+                <!-- Formation 5 -->
+                <div class="formation-card card animate-on-scroll" data-category="finance" data-duration="2" data-format="distanciel">
+                    <div class="relative mb-4">
+                        <img src="../assets/images/logo.png" alt="Formation Finance" class="w-full h-48 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">Finance</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-800 px-2 py-1 rounded text-xs font-medium">2 jours</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Contrôle de Gestion</h3>
+                    <p class="text-gray-600 mb-4">Maîtrisez les outils du contrôle de gestion pour piloter la performance de votre entreprise.</p>
+                    
+                    <div class="flex items-center mb-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">19-20 Avril 2024</span>
+                        <i class="fas fa-laptop mr-2"></i>
+                        <span>Distanciel</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(22 avis)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-blue-600">1 300€</div>
+                            <div class="text-sm text-gray-500">HT par personne</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">Certifiante</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">CPF</span>
+                        <span class="px-2 py-1 bg-red-100 text-red-700 text-xs rounded">Distanciel</span>
+                    </div>
+                    
+                    <a href="formation-detail.html?id=5" class="btn-primary w-full text-center">Voir les détails</a>
+                </div>
+
+                <!-- Formation 6 -->
+                <div class="formation-card card animate-on-scroll" data-category="rh" data-duration="1" data-format="presentiel">
+                    <div class="relative mb-4">
+                        <img src="../assets/images/formation-rh.jpg" alt="Formation RH" class="w-full h-48 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">RH</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-800 px-2 py-1 rounded text-xs font-medium">1 jour</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Gestion des Conflits</h3>
+                    <p class="text-gray-600 mb-4">Apprenez à identifier, prévenir et résoudre les conflits en entreprise.</p>
+                    
+                    <div class="flex items-center mb-4 text-sm text-gray-500">
+                        <i class="fas fa-calendar mr-2"></i>
+                        <span class="mr-4">26 Avril 2024</span>
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>Toulouse</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-sm text-gray-500 ml-2">(19 avis)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-orange-600">650€</div>
+                            <div class="text-sm text-gray-500">HT par personne</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">Non certifiante</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">CPF</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded">Présentiel</span>
+                    </div>
+                    
+                    <a href="formation-detail.html?id=6" class="btn-primary w-full text-center">Voir les détails</a>
+                </div>
+            </div>
+
+            <!-- Message si aucune formation trouvée -->
+            <div id="no-results" class="text-center py-12 hidden">
+                <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-xl font-bold text-gray-600 mb-2">Aucune formation trouvée</h3>
+                <p class="text-gray-500">Essayez de modifier vos critères de recherche</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Pourquoi Choisir Nos Formations ?</h2>
+                <p class="text-xl text-gray-600">Des formations de qualité adaptées aux besoins des professionnels</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Certifiantes</h3>
+                    <p class="text-gray-600">Formations reconnues avec certification officielle</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-secondary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Formateurs Experts</h3>
+                    <p class="text-gray-600">Professionnels expérimentés du secteur</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Formats Flexibles</h3>
+                    <p class="text-gray-600">Présentiel, distanciel ou hybride selon vos besoins</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-euro-sign text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Financement CPF</h3>
+                    <p class="text-gray-600">Éligibles au Compte Personnel de Formation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Témoignages</h2>
+                <p class="text-xl text-gray-600">Ce que disent nos stagiaires</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <img src="../assets/images/logo.png" alt="Stagiaire" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Julie Martin</h4>
+                            <p class="text-sm text-gray-600">Manager Commercial</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Formation très enrichissante avec des cas pratiques concrets. 
+                        J'ai pu appliquer immédiatement les techniques apprises."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <img src="../assets/images/logo.png" alt="Stagiaire" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Thomas Dubois</h4>
+                            <p class="text-sm text-gray-600">Responsable Qualité</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Excellent accompagnement pour la certification ISO 9001. 
+                        Formateur très compétent et pédagogue."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <img src="../assets/images/logo.png" alt="Stagiaire" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Leroy</h4>
+                            <p class="text-sm text-gray-600">Directrice RH</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Formation management très complète. Les outils fournis 
+                        m'aident au quotidien dans la gestion de mes équipes."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white section-padding">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">Besoin d'une Formation Sur Mesure ?</h2>
+            <p class="text-xl mb-8 text-gray-200">
+                Nous créons des programmes personnalisés selon vos besoins spécifiques
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="../contact/index.html" class="bg-white text-primary-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-envelope mr-2"></i>Demander un Devis
+                </a>
+                <a href="tel:+33123456789" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-4 px-8 rounded-lg transition-all duration-200">
+                    <i class="fas fa-phone mr-2"></i>Nous Appeler
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                        <span class="ml-3 text-xl font-bold">I.B.G</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Institut spécialisé dans l'accompagnement des entreprises, la formation professionnelle et le développement du secteur privé.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../services/conseil.html" class="text-gray-300 hover:text-white transition-colors">Conseil aux entreprises</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Gestion de projet</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Accompagnement</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary-400"></i>
+                            123 Rue de l'Innovation, Ville
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            +33 1 23 45 67 89
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            contact@ibg-institut.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 I.B.G Institut. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Filtrage des formations
+        function filterFormations() {
+            const category = document.getElementById('categoryFilter').value;
+            const duration = document.getElementById('durationFilter').value;
+            const format = document.getElementById('formatFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            
+            const formations = document.querySelectorAll('.formation-card');
+            let visibleCount = 0;
+            
+            formations.forEach(formation => {
+                const formationCategory = formation.dataset.category;
+                const formationDuration = formation.dataset.duration;
+                const formationFormat = formation.dataset.format;
+                const formationText = formation.textContent.toLowerCase();
+                
+                const matchCategory = !category || formationCategory === category;
+                const matchDuration = !duration || formationDuration === duration;
+                const matchFormat = !format || formationFormat === format;
+                const matchSearch = !search || formationText.includes(search);
+                
+                if (matchCategory && matchDuration && matchFormat && matchSearch) {
+                    formation.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    formation.style.display = 'none';
+                }
+            });
+            
+            // Afficher/masquer le message "aucun résultat"
+            const noResults = document.getElementById('no-results');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+        
+        // Event listeners pour les filtres
+        document.getElementById('categoryFilter').addEventListener('change', filterFormations);
+        document.getElementById('durationFilter').addEventListener('change', filterFormations);
+        document.getElementById('formatFilter').addEventListener('change', filterFormations);
+        document.getElementById('searchInput').addEventListener('input', filterFormations);
+    </script>
+</body>
+</html>

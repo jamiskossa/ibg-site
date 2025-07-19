@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda des Événements - I.B.G Institut</title>
+    <meta name="description" content="Découvrez notre agenda d'événements : conférences, webinaires, ateliers et formations spécialisées pour les professionnels.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                    <span class="ml-3 text-xl font-bold text-primary-900">I.B.G</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Accueil</a>
+                    <a href="../about/index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Qui sommes-nous</a>
+                    <a href="../services/conseil.html" class="text-gray-700 hover:text-primary-600 transition-colors">Services</a>
+                    <a href="../formations/catalogue.html" class="text-gray-700 hover:text-primary-600 transition-colors">Formations</a>
+                    <a href="#" class="text-primary-600 font-medium">Événements</a>
+                    <a href="../contact/index.html" class="btn-primary">Contact</a>
+                </div>
+                
+                <div class="lg:hidden">
+                    <button id="hamburger" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Accueil</a>
+                <a href="../about/index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Qui sommes-nous</a>
+                <a href="../services/conseil.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Services</a>
+                <a href="../formations/catalogue.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Formations</a>
+                <a href="#" class="block px-3 py-2 text-primary-600 font-medium">Événements</a>
+                <a href="../contact/index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center animate-on-scroll">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6">Agenda des Événements</h1>
+                <p class="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Participez à nos conférences, webinaires et ateliers pour développer vos compétences et élargir votre réseau professionnel
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#prochains-evenements" class="bg-white text-primary-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-colors duration-200">
+                        <i class="fas fa-calendar-alt mr-2"></i>Voir les Événements
+                    </a>
+                    <a href="#newsletter" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-4 px-8 rounded-lg transition-all duration-200">
+                        <i class="fas fa-bell mr-2"></i>S'abonner aux Alertes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="bg-white py-8 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="flex items-center">
+                    <label for="typeFilter" class="text-sm font-medium text-gray-700 mr-2">Type :</label>
+                    <select id="typeFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <option value="">Tous les types</option>
+                        <option value="conference">Conférence</option>
+                        <option value="webinaire">Webinaire</option>
+                        <option value="atelier">Atelier</option>
+                        <option value="formation">Formation</option>
+                        <option value="networking">Networking</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center">
+                    <label for="dateFilter" class="text-sm font-medium text-gray-700 mr-2">Période :</label>
+                    <select id="dateFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <option value="">Toutes les dates</option>
+                        <option value="cette-semaine">Cette semaine</option>
+                        <option value="ce-mois">Ce mois</option>
+                        <option value="prochains-3-mois">3 prochains mois</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center">
+                    <label for="formatFilter" class="text-sm font-medium text-gray-700 mr-2">Format :</label>
+                    <select id="formatFilter" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <option value="">Tous les formats</option>
+                        <option value="presentiel">Présentiel</option>
+                        <option value="distanciel">Distanciel</option>
+                        <option value="hybride">Hybride</option>
+                    </select>
+                </div>
+                
+                <div class="flex-1 min-w-64">
+                    <input type="text" id="searchEvents" placeholder="Rechercher un événement..." 
+                           class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Événements à la Une -->
+    <section id="prochains-evenements" class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Événements à la Une</h2>
+                <p class="text-xl text-gray-600">Ne manquez pas nos prochains événements phares</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                <!-- Événement Principal -->
+                <div class="card featured-event animate-on-scroll" data-type="conference" data-format="presentiel" data-date="2024-03-20">
+                    <div class="relative mb-6">
+                        <img src="../assets/images/logo.png" alt="Conférence IA" class="w-full h-64 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">Conférence</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-900 px-3 py-1 rounded-full text-sm font-medium">Présentiel</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center text-sm text-gray-600 mb-3">
+                        <i class="fas fa-calendar-alt mr-2 text-primary-500"></i>
+                        <span>20 Mars 2024 - 14h00 à 17h30</span>
+                        <span class="mx-3">•</span>
+                        <i class="fas fa-map-marker-alt mr-2 text-primary-500"></i>
+                        <span>Paris</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">L'Intelligence Artificielle au Service des Entreprises</h3>
+                    <p class="text-gray-600 mb-6">
+                        Découvrez comment l'IA transforme les processus métier et créez votre stratégie d'adoption. 
+                        Conférence animée par des experts du secteur avec des cas d'usage concrets.
+                    </p>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <img src="../assets/images/logo.png" alt="Dr. Marie Dubois" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <div class="font-medium text-gray-900">Dr. Marie Dubois</div>
+                                <div class="text-sm text-gray-600">Expert IA & Data Science</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-primary-600">Gratuit</div>
+                            <div class="text-sm text-gray-600">Sur inscription</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button class="btn-primary flex-1">
+                            <i class="fas fa-ticket-alt mr-2"></i>S'inscrire
+                        </button>
+                        <button class="btn-outline">
+                            <i class="fas fa-info-circle mr-2"></i>Détails
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Webinaire -->
+                <div class="card animate-on-scroll" data-type="webinaire" data-format="distanciel" data-date="2024-03-15">
+                    <div class="relative mb-6">
+                        <img src="../assets/images/logo.png" alt="Webinaire Management" class="w-full h-64 object-cover rounded-lg">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">Webinaire</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-white text-gray-900 px-3 py-1 rounded-full text-sm font-medium">Distanciel</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center text-sm text-gray-600 mb-3">
+                        <i class="fas fa-calendar-alt mr-2 text-primary-500"></i>
+                        <span>15 Mars 2024 - 11h00 à 12h00</span>
+                        <span class="mx-3">•</span>
+                        <i class="fas fa-globe mr-2 text-primary-500"></i>
+                        <span>En ligne</span>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Management à Distance : Bonnes Pratiques</h3>
+                    <p class="text-gray-600 mb-6">
+                        Webinaire interactif sur les techniques de management d'équipes à distance. 
+                        Outils, méthodes et retours d'expérience pour optimiser la collaboration.
+                    </p>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <img src="../assets/images/logo.png" alt="Pierre Martin" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <div class="font-medium text-gray-900">Pierre Martin</div>
+                                <div class="text-sm text-gray-600">Consultant RH</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-bold text-primary-600">Gratuit</div>
+                            <div class="text-sm text-gray-600">Places limitées</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button class="btn-primary flex-1">
+                            <i class="fas fa-video mr-2"></i>Rejoindre
+                        </button>
+                        <button class="btn-outline">
+                            <i class="fas fa-info-circle mr-2"></i>Détails
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liste des Événements -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Tous nos Événements</h2>
+                <p class="text-xl text-gray-600">Découvrez notre programmation complète</p>
+            </div>
+            
+            <div id="events-list" class="space-y-6">
+                <!-- Événement 1 -->
+                <div class="event-card card flex flex-col lg:flex-row gap-6 animate-on-scroll" 
+                     data-type="atelier" data-format="presentiel" data-date="2024-03-25">
+                    <div class="lg:w-80 flex-shrink-0">
+                        <img src="../assets/images/logo.png" alt="Atelier Excel" class="w-full h-48 lg:h-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">Atelier</span>
+                            <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Présentiel</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <i class="fas fa-calendar-alt mr-2 text-primary-500"></i>
+                            <span>25 Mars 2024 - 9h00 à 17h00</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-map-marker-alt mr-2 text-primary-500"></i>
+                            <span>Lyon</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-users mr-2 text-primary-500"></i>
+                            <span>12 participants max</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Atelier Excel Avancé : Tableaux de Bord et Macros</h3>
+                        <p class="text-gray-600 mb-4">
+                            Formation pratique pour maîtriser les fonctionnalités avancées d'Excel : création de tableaux de bord dynamiques, 
+                            automatisation avec les macros et analyse de données complexes.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="text-lg font-bold text-primary-600 mr-4">450€ HT</div>
+                                <div class="text-sm text-orange-600 font-medium">3 places restantes</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="btn-primary">S'inscrire</button>
+                                <button class="btn-outline">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Événement 2 -->
+                <div class="event-card card flex flex-col lg:flex-row gap-6 animate-on-scroll" 
+                     data-type="networking" data-format="presentiel" data-date="2024-04-02">
+                    <div class="lg:w-80 flex-shrink-0">
+                        <img src="../assets/images/logo.png" alt="Networking" class="w-full h-48 lg:h-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">Networking</span>
+                            <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Présentiel</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <i class="fas fa-calendar-alt mr-2 text-primary-500"></i>
+                            <span>2 Avril 2024 - 18h30 à 21h00</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-map-marker-alt mr-2 text-primary-500"></i>
+                            <span>Paris</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-users mr-2 text-primary-500"></i>
+                            <span>50 participants</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Soirée Networking : Entrepreneurs & Dirigeants</h3>
+                        <p class="text-gray-600 mb-4">
+                            Rencontrez des entrepreneurs, dirigeants et professionnels de votre secteur. Soirée conviviale avec 
+                            conférences courtes, échanges et opportunités de partenariats.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="text-lg font-bold text-primary-600 mr-4">Gratuit</div>
+                                <div class="text-sm text-green-600 font-medium">Places disponibles</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="btn-primary">S'inscrire</button>
+                                <button class="btn-outline">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Événement 3 -->
+                <div class="event-card card flex flex-col lg:flex-row gap-6 animate-on-scroll" 
+                     data-type="formation" data-format="hybride" data-date="2024-04-10">
+                    <div class="lg:w-80 flex-shrink-0">
+                        <img src="../assets/images/logo.png" alt="Formation Digital" class="w-full h-48 lg:h-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">Formation</span>
+                            <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Hybride</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <i class="fas fa-calendar-alt mr-2 text-primary-500"></i>
+                            <span>10-11 Avril 2024 - 9h00 à 17h00</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-globe mr-2 text-primary-500"></i>
+                            <span>Paris + Distanciel</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-certificate mr-2 text-primary-500"></i>
+                            <span>Certifiante</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Transformation Digitale : Stratégie et Mise en Œuvre</h3>
+                        <p class="text-gray-600 mb-4">
+                            Formation complète sur la transformation digitale des entreprises. Méthodologies, outils, 
+                            conduite du changement et mesure de la performance.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="text-lg font-bold text-primary-600 mr-4">1 200€ HT</div>
+                                <div class="text-sm text-green-600 font-medium">8 places disponibles</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="btn-primary">S'inscrire</button>
+                                <button class="btn-outline">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Événement 4 -->
+                <div class="event-card card flex flex-col lg:flex-row gap-6 animate-on-scroll" 
+                     data-type="webinaire" data-format="distanciel" data-date="2024-04-18">
+                    <div class="lg:w-80 flex-shrink-0">
+                        <img src="../assets/images/logo.png" alt="Webinaire Finance" class="w-full h-48 lg:h-full object-cover rounded-lg">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">Webinaire</span>
+                            <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Distanciel</span>
+                        </div>
+                        
+                        <div class="flex items-center text-sm text-gray-600 mb-3">
+                            <i class="fas fa-calendar-alt mr-2 text-primary-500"></i>
+                            <span>18 Avril 2024 - 14h00 à 15h30</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-globe mr-2 text-primary-500"></i>
+                            <span>En ligne</span>
+                            <span class="mx-3">•</span>
+                            <i class="fas fa-users mr-2 text-primary-500"></i>
+                            <span>100 participants max</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Gestion Financière pour Non-Financiers</h3>
+                        <p class="text-gray-600 mb-4">
+                            Webinaire destiné aux managers et dirigeants pour comprendre les bases de la gestion financière, 
+                            lire un bilan et optimiser la trésorerie.
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="text-lg font-bold text-primary-600 mr-4">Gratuit</div>
+                                <div class="text-sm text-green-600 font-medium">Places disponibles</div>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="btn-primary">Rejoindre</button>
+                                <button class="btn-outline">Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <button class="px-3 py-2 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-50" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="px-3 py-2 text-sm bg-primary-600 text-white rounded">1</button>
+                    <button class="px-3 py-2 text-sm text-gray-700 hover:text-primary-600">2</button>
+                    <button class="px-3 py-2 text-sm text-gray-700 hover:text-primary-600">3</button>
+                    <button class="px-3 py-2 text-sm text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="bg-primary-600 text-white section-padding">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h2 class="text-3xl font-bold mb-4">Restez Informé de nos Événements</h2>
+            <p class="text-xl text-primary-100 mb-8">
+                Recevez en avant-première les invitations à nos événements et ne manquez aucune opportunité de développement
+            </p>
+            
+            <form class="max-w-md mx-auto">
+                <div class="flex gap-4">
+                    <input type="email" placeholder="Votre adresse email" 
+                           class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white">
+                    <button type="submit" class="bg-white text-primary-600 hover:bg-gray-100 font-bold px-6 py-3 rounded-lg transition-colors">
+                        S'abonner
+                    </button>
+                </div>
+                <p class="text-sm text-primary-200 mt-3">
+                    Nous respectons votre vie privée. Désabonnement possible à tout moment.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Partenaires -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 animate-on-scroll">Nos Partenaires Événementiels</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+                <img src="../assets/images/partner-1.png" alt="Partenaire 1" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all">
+                <img src="../assets/images/partner-2.png" alt="Partenaire 2" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all">
+                <img src="../assets/images/partner-3.png" alt="Partenaire 3" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all">
+                <img src="../assets/images/partner-4.png" alt="Partenaire 4" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all">
+                <img src="../assets/images/partner-5.png" alt="Partenaire 5" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all">
+                <img src="../assets/images/partner-6.png" alt="Partenaire 6" class="h-12 mx-auto grayscale hover:grayscale-0 transition-all">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                        <span class="ml-3 text-xl font-bold">I.B.G</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Institut spécialisé dans l'accompagnement des entreprises, la formation professionnelle et le développement du secteur privé.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../services/conseil.html" class="text-gray-300 hover:text-white transition-colors">Conseil aux entreprises</a></li>
+                        <li><a href="../formations/catalogue.html" class="text-gray-300 hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Gestion de projet</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Accompagnement</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Événements</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Conférences</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Webinaires</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Ateliers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Networking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary-400"></i>
+                            123 Rue de l'Innovation, Ville
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            +33 1 23 45 67 89
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            contact@ibg-institut.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 I.B.G Institut. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Système de filtrage des événements
+        document.addEventListener('DOMContentLoaded', function() {
+            const typeFilter = document.getElementById('typeFilter');
+            const dateFilter = document.getElementById('dateFilter');
+            const formatFilter = document.getElementById('formatFilter');
+            const searchInput = document.getElementById('searchEvents');
+            const eventCards = document.querySelectorAll('.event-card');
+            
+            function filterEvents() {
+                const typeValue = typeFilter.value.toLowerCase();
+                const formatValue = formatFilter.value.toLowerCase();
+                const searchValue = searchInput.value.toLowerCase();
+                
+                eventCards.forEach(card => {
+                    const cardType = card.dataset.type.toLowerCase();
+                    const cardFormat = card.dataset.format.toLowerCase();
+                    const cardText = card.textContent.toLowerCase();
+                    
+                    const typeMatch = !typeValue || cardType === typeValue;
+                    const formatMatch = !formatValue || cardFormat === formatValue;
+                    const searchMatch = !searchValue || cardText.includes(searchValue);
+                    
+                    if (typeMatch && formatMatch && searchMatch) {
+                        card.style.display = 'flex';
+                        card.classList.add('animate-on-scroll');
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Écouteurs d'événements pour les filtres
+            typeFilter.addEventListener('change', filterEvents);
+            formatFilter.addEventListener('change', filterEvents);
+            searchInput.addEventListener('input', filterEvents);
+            
+            // Gestion du filtre de date
+            dateFilter.addEventListener('change', function() {
+                const dateValue = this.value;
+                const today = new Date();
+                
+                eventCards.forEach(card => {
+                    const eventDate = new Date(card.dataset.date);
+                    let showCard = true;
+                    
+                    switch(dateValue) {
+                        case 'cette-semaine':
+                            const weekFromNow = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+                            showCard = eventDate >= today && eventDate <= weekFromNow;
+                            break;
+                        case 'ce-mois':
+                            showCard = eventDate.getMonth() === today.getMonth() && 
+                                      eventDate.getFullYear() === today.getFullYear();
+                            break;
+                        case 'prochains-3-mois':
+                            const threeMonthsFromNow = new Date(today.getTime() + 90 * 24 * 60 * 60 * 1000);
+                            showCard = eventDate >= today && eventDate <= threeMonthsFromNow;
+                            break;
+                        default:
+                            showCard = true;
+                    }
+                    
+                    if (showCard) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Réappliquer les autres filtres
+                filterEvents();
+            });
+        });
+        
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

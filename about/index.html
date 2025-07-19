@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - I.B.G Institut</title>
+    <meta name="description" content="Découvrez l'histoire, la mission et l'équipe d'I.B.G, votre partenaire pour le développement des entreprises.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                    <span class="ml-3 text-xl font-bold text-primary-900">I.B.G</span>
+                </div>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="../index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Accueil</a>
+                    <a href="#" class="text-primary-600 font-medium">Qui sommes-nous</a>
+                    <a href="../services/conseil.html" class="text-gray-700 hover:text-primary-600 transition-colors">Services</a>
+                    <a href="../formations/catalogue.html" class="text-gray-700 hover:text-primary-600 transition-colors">Formations</a>
+                    <a href="../evenements/agenda.html" class="text-gray-700 hover:text-primary-600 transition-colors">Événements</a>
+                    <a href="../contact/index.html" class="btn-primary">Contact</a>
+                </div>
+                
+                <div class="lg:hidden">
+                    <button id="hamburger" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-900 to-primary-600 text-white pt-16">
+        <div class="max-w-7xl mx-auto section-padding">
+            <div class="text-center animate-on-scroll">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-6">À propos d'I.B.G</h1>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Découvrez notre histoire, notre mission et les valeurs qui nous animent dans l'accompagnement de votre réussite
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Histoire & Mission -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Notre Histoire</h2>
+                    <div class="space-y-4 text-gray-600">
+                        <p>
+                            Fondé en 2008, l'Institut I.B.G est né de la vision de créer un pont entre les besoins des entreprises 
+                            et les solutions d'accompagnement adaptées au contexte économique moderne.
+                        </p>
+                        <p>
+                            Depuis plus de 15 ans, nous avons accompagné plus de 500 entreprises dans leur développement, 
+                            formé plus de 2000 professionnels et contribué à l'amélioration du climat des affaires dans notre région.
+                        </p>
+                        <p>
+                            Notre expertise s'est construite au fil des années grâce à une équipe pluridisciplinaire 
+                            et des partenariats stratégiques avec les acteurs clés du développement économique.
+                        </p>
+                    </div>
+                </div>
+                <div class="animate-on-scroll">
+                    <img src="../assets/images/logo.png" alt="Histoire I.B.G" 
+                         class="rounded-xl shadow-lg w-full h-96 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Mission & Vision</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="card animate-on-scroll">
+                    <div class="text-primary-600 text-4xl mb-6">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Notre Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Accompagner les entreprises, les entrepreneurs et les professionnels dans leur développement 
+                        en proposant des solutions sur mesure de conseil, formation et gestion de projet. 
+                        Nous nous engageons à être un partenaire de confiance pour la croissance durable 
+                        et l'innovation dans le secteur privé.
+                    </p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="text-secondary-600 text-4xl mb-6">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Notre Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Devenir la référence régionale en matière d'accompagnement des entreprises et de formation professionnelle. 
+                        Nous aspirons à contribuer significativement au développement économique local 
+                        en créant un écosystème favorable à l'entrepreneuriat et à l'innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valeurs -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nos Valeurs</h2>
+                <p class="text-xl text-gray-600">Les principes qui guident notre action au quotidien</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Excellence</h3>
+                    <p class="text-gray-600">Nous visons l'excellence dans tous nos services et accompagnements.</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-secondary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-secondary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Collaboration</h3>
+                    <p class="text-gray-600">Nous croyons en la force du travail d'équipe et des partenariats.</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Innovation</h3>
+                    <p class="text-gray-600">Nous encourageons l'innovation et l'adaptation aux nouveaux défis.</p>
+                </div>
+                
+                <div class="text-center animate-on-scroll">
+                    <div class="bg-orange-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Engagement</h3>
+                    <p class="text-gray-600">Nous nous engageons pleinement dans la réussite de nos clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe -->
+    <section id="equipe" class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Notre Équipe</h2>
+                <p class="text-xl text-gray-600">Des experts passionnés à votre service</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card text-center animate-on-scroll group">
+                    <img src="../assets/images/logo.png" alt="Directeur Général" 
+                         class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Dr. Ahmed BENALI</h3>
+                    <p class="text-primary-600 font-medium mb-3">Directeur Général</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Expert en développement économique avec plus de 20 ans d'expérience dans l'accompagnement des entreprises.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card text-center animate-on-scroll group">
+                    <img src="../assets/images/logo.png" alt="Responsable Formation" 
+                         class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Mme. Sarah MARTIN</h3>
+                    <p class="text-primary-600 font-medium mb-3">Responsable Formation</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Spécialiste en ingénierie pédagogique et développement des compétences professionnelles.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card text-center animate-on-scroll group">
+                    <img src="../assets/images/logo.png" alt="Consultant Senior" 
+                         class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">M. Karim DIALLO</h3>
+                    <p class="text-primary-600 font-medium mb-3">Consultant Senior</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Expert en stratégie d'entreprise et gestion de projet avec une forte expérience terrain.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card text-center animate-on-scroll group">
+                    <img src="../assets/images/logo.png" alt="Responsable Microfinance" 
+                         class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Mme. Fatou KANE</h3>
+                    <p class="text-primary-600 font-medium mb-3">Responsable Microfinance</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Spécialiste en finance inclusive et accompagnement des micro-entreprises.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card text-center animate-on-scroll group">
+                    <img src="../assets/images/logo.png" alt="Responsable Qualité" 
+                         class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">M. Pierre DUBOIS</h3>
+                    <p class="text-primary-600 font-medium mb-3">Responsable Qualité</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Expert en systèmes de management de la qualité et certification d'entreprises.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card text-center animate-on-scroll group">
+                    <img src="../assets/images/logo.png" alt="Chargée de Communication" 
+                         class="w-32 h-32 rounded-full mx-auto mb-4 object-cover group-hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold mb-2 text-gray-900">Mlle. Aïcha TRAORE</h3>
+                    <p class="text-primary-600 font-medium mb-3">Chargée de Communication</p>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Spécialiste en communication digitale et gestion des relations publiques.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-600 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires -->
+    <section id="partenaires" class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nos Partenaires</h2>
+                <p class="text-xl text-gray-600">Ensemble, nous construisons un écosystème de développement</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="animate-on-scroll hover:scale-105 transition-transform duration-300">
+                    <img src="../assets/images/partner-1.png" alt="Partenaire 1" class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="animate-on-scroll hover:scale-105 transition-transform duration-300">
+                    <img src="../assets/images/partner-2.png" alt="Partenaire 2" class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="animate-on-scroll hover:scale-105 transition-transform duration-300">
+                    <img src="../assets/images/partner-3.png" alt="Partenaire 3" class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="animate-on-scroll hover:scale-105 transition-transform duration-300">
+                    <img src="../assets/images/partner-4.png" alt="Partenaire 4" class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="animate-on-scroll hover:scale-105 transition-transform duration-300">
+                    <img src="../assets/images/partner-5.png" alt="Partenaire 5" class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="animate-on-scroll hover:scale-105 transition-transform duration-300">
+                    <img src="../assets/images/partner-6.png" alt="Partenaire 6" class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+            </div>
+            
+            <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="card animate-on-scroll text-center">
+                    <div class="text-primary-600 text-3xl mb-4">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Institutions Académiques</h3>
+                    <p class="text-gray-600">Partenariats avec des universités et centres de recherche pour l'innovation pédagogique.</p>
+                </div>
+                
+                <div class="card animate-on-scroll text-center">
+                    <div class="text-secondary-600 text-3xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Organisations Internationales</h3>
+                    <p class="text-gray-600">Collaboration avec des organismes de développement et bailleurs de fonds.</p>
+                </div>
+                
+                <div class="card animate-on-scroll text-center">
+                    <div class="text-purple-600 text-3xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Secteur Privé</h3>
+                    <p class="text-gray-600">Alliances stratégiques avec des entreprises leaders dans différents secteurs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Reconnaissances -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Certifications & Reconnaissances</h2>
+                <p class="text-xl text-gray-600">Notre expertise reconnue par les instances professionnelles</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card text-center animate-on-scroll">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">ISO 9001:2015</h3>
+                    <p class="text-gray-600 text-sm">Certification qualité pour nos processus de formation et conseil</p>
+                </div>
+                
+                <div class="card text-center animate-on-scroll">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Qualiopi</h3>
+                    <p class="text-gray-600 text-sm">Certification qualité des organismes de formation</p>
+                </div>
+                
+                <div class="card text-center animate-on-scroll">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Prix Excellence</h3>
+                    <p class="text-gray-600 text-sm">Lauréat du prix de l'excellence en accompagnement PME 2023</p>
+                </div>
+                
+                <div class="card text-center animate-on-scroll">
+                    <div class="text-purple-500 text-4xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 text-gray-900">Accréditation</h3>
+                    <p class="text-gray-600 text-sm">Organisme accrédité par le Ministère de l'Emploi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white section-padding">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">Rejoignez notre communauté</h2>
+            <p class="text-xl mb-8 text-gray-200">
+                Découvrez comment notre équipe peut vous accompagner dans vos projets de développement
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="../contact/index.html" class="bg-white text-primary-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-phone mr-2"></i>Nous Rencontrer
+                </a>
+                <a href="../services/conseil.html" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-4 px-8 rounded-lg transition-all duration-200">
+                    <i class="fas fa-briefcase mr-2"></i>Nos Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto" src="../assets/images/logo.png" alt="I.B.G Logo">
+                        <span class="ml-3 text-xl font-bold">I.B.G</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Institut spécialisé dans l'accompagnement des entreprises, la formation professionnelle et le développement du secteur privé.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-300 hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="../services/conseil.html" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="../formations/catalogue.html" class="text-gray-300 hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="../evenements/agenda.html" class="text-gray-300 hover:text-white transition-colors">Événements</a></li>
+                        <li><a href="../ressources/blog.html" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary-400"></i>
+                            123 Rue de l'Innovation, Ville
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            +33 1 23 45 67 89
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            contact@ibg-institut.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 I.B.G Institut. Site créé par YATTARA Ousmane Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

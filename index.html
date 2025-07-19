@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.B.G - Institut de Développement et d'Accompagnement</title>
+    <meta name="description" content="I.B.G accompagne les entreprises dans leur développement avec des services de conseil, formation et gestion de projet.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-10 w-auto" src="./assets/images/logo.png" alt="I.B.G Logo">
+                    <span class="ml-3 text-xl font-bold text-primary-900">I.B.G</span>
+                </div>
+                
+                <!-- Navigation Desktop -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-primary-600 transition-colors">Accueil</a>
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-primary-600 transition-colors flex items-center">
+                            Qui sommes-nous <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="./about/index.html" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">À propos</a>
+                            <a href="./about/index.html#equipe" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">Équipe</a>
+                            <a href="./about/index.html#partenaires" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">Partenaires</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-gray-700 hover:text-primary-600 transition-colors flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="./services/conseil.html" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">Conseil aux entreprises</a>
+                            <a href="./services/formation.html" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">Formation professionnelle</a>
+                            <a href="./services/projet.html" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">Gestion de projet</a>
+                            <a href="./services/accompagnement.html" class="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600">Accompagnement</a>
+                        </div>
+                    </div>
+                    <a href="./formations/catalogue.html" class="text-gray-700 hover:text-primary-600 transition-colors">Formations</a>
+                    <a href="./evenements/agenda.html" class="text-gray-700 hover:text-primary-600 transition-colors">Événements</a>
+                    <a href="./contact/index.html" class="btn-primary">Contact</a>
+                </div>
+                
+                <!-- Menu Mobile Button -->
+                <div class="lg:hidden">
+                    <button id="hamburger" onclick="toggleMobileMenu()" class="text-gray-700 hover:text-primary-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#accueil" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Accueil</a>
+                <a href="./about/index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Qui sommes-nous</a>
+                <a href="./services/conseil.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Services</a>
+                <a href="./formations/catalogue.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Formations</a>
+                <a href="./evenements/agenda.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Événements</a>
+                <a href="./contact/index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="relative bg-gradient-to-br from-primary-900 via-primary-800 to-primary-600 text-white pt-16">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto section-padding">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Développez votre <span class="text-secondary-400">potentiel</span> avec I.B.G
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-200 leading-relaxed">
+                        Institut spécialisé dans l'accompagnement des entreprises, la formation professionnelle et le développement du secteur privé.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="./services/conseil.html" class="btn-secondary text-center">
+                            <i class="fas fa-rocket mr-2"></i>Nos Services
+                        </a>
+                        <a href="./contact/index.html" class="btn-outline text-center">
+                            <i class="fas fa-phone mr-2"></i>Nous Contacter
+                        </a>
+                    </div>
+                </div>
+                <div class="animate-on-scroll">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                        <h3 class="text-2xl font-bold mb-6">Chiffres Clés</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-secondary-400 mb-2">500+</div>
+                                <div class="text-sm text-gray-200">Entreprises accompagnées</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-secondary-400 mb-2">2000+</div>
+                                <div class="text-sm text-gray-200">Personnes formées</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-secondary-400 mb-2">15+</div>
+                                <div class="text-sm text-gray-200">Années d'expérience</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-secondary-400 mb-2">95%</div>
+                                <div class="text-sm text-gray-200">Taux de satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nos Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Nous accompagnons votre développement avec des solutions sur mesure adaptées à vos besoins
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card animate-on-scroll group hover:scale-105 transition-transform duration-300">
+                    <div class="text-primary-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Conseil aux Entreprises</h3>
+                    <p class="text-gray-600 mb-4">Stratégie, organisation et optimisation de vos processus métier.</p>
+                    <a href="./services/conseil.html" class="text-primary-600 hover:text-primary-700 font-medium">
+                        En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll group hover:scale-105 transition-transform duration-300">
+                    <div class="text-primary-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Formation Professionnelle</h3>
+                    <p class="text-gray-600 mb-4">Développement des compétences et formation continue.</p>
+                    <a href="./services/formation.html" class="text-primary-600 hover:text-primary-700 font-medium">
+                        En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll group hover:scale-105 transition-transform duration-300">
+                    <div class="text-primary-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Gestion de Projet</h3>
+                    <p class="text-gray-600 mb-4">Pilotage et accompagnement de vos projets stratégiques.</p>
+                    <a href="./services/projet.html" class="text-primary-600 hover:text-primary-700 font-medium">
+                        En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="card animate-on-scroll group hover:scale-105 transition-transform duration-300">
+                    <div class="text-primary-600 text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Accompagnement</h3>
+                    <p class="text-gray-600 mb-4">Support personnalisé pour votre croissance et insertion.</p>
+                    <a href="./services/accompagnement.html" class="text-primary-600 hover:text-primary-700 font-medium">
+                        En savoir plus <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domaines d'Expertise -->
+    <section class="section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nos Domaines d'Expertise</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Une expertise reconnue dans des secteurs clés de l'économie
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-8 animate-on-scroll hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-primary-600 text-3xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Développement du Secteur Privé</h3>
+                    <p class="text-gray-600">Accompagnement des entreprises dans leur croissance et développement.</p>
+                </div>
+                
+
+                <div class="bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl p-8 animate-on-scroll hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-secondary-600 text-3xl mb-4">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Microfinance</h3>
+                    <p class="text-gray-600">Solutions financières adaptées aux petites entreprises et entrepreneurs.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 animate-on-scroll hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-purple-600 text-3xl mb-4">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Artisanat et PME</h3>
+                    <p class="text-gray-600">Support spécialisé pour les artisans et petites entreprises.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 animate-on-scroll hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-orange-600 text-3xl mb-4">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Démarche Qualité</h3>
+                    <p class="text-gray-600">Mise en place de systèmes qualité et certification.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 animate-on-scroll hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-green-600 text-3xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Climat des Affaires</h3>
+                    <p class="text-gray-600">Amélioration de l'environnement des affaires et investissement.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 animate-on-scroll hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-blue-600 text-3xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Innovation</h3>
+                    <p class="text-gray-600">Accompagnement dans l'innovation et la transformation digitale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="bg-gray-50 section-padding">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Témoignages</h2>
+                <p class="text-xl text-gray-600">Ce que disent nos clients</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <img src="./assets/images/testimonial-1.jpg" alt="Client 1" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Marie Dubois</h4>
+                            <p class="text-gray-600 text-sm">Directrice, PME Solutions</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"L'accompagnement d'I.B.G a été déterminant pour la croissance de notre entreprise. Leur expertise et leur approche personnalisée nous ont permis d'atteindre nos objectifs."</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <img src="./assets/images/testimonial-2.jpg" alt="Client 2" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Jean Martin</h4>
+                            <p class="text-gray-600 text-sm">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Les formations proposées par I.B.G sont de très haute qualité. J'ai pu développer mes compétences et améliorer significativement la gestion de mon entreprise."</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <img src="./assets/images/testimonial-3.jpg" alt="Client 3" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-900">Fatou Diallo</h4>
+                            <p class="text-gray-600 text-sm">Artisane</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic">"Grâce au programme d'accompagnement d'I.B.G, j'ai pu structurer mon activité artisanale et accéder à de nouveaux marchés."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-primary-600 to-secondary-600 text-white section-padding">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">Prêt à développer votre entreprise ?</h2>
+            <p class="text-xl mb-8 text-gray-200">
+                Contactez-nous dès aujourd'hui pour discuter de vos projets et découvrir comment nous pouvons vous accompagner.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="./contact/index.html" class="bg-white text-primary-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg transition-colors duration-200">
+                    <i class="fas fa-phone mr-2"></i>Nous Contacter
+                </a>
+                <a href="./formations/catalogue.html" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-4 px-8 rounded-lg transition-all duration-200">
+                    <i class="fas fa-book mr-2"></i>Voir nos Formations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-gray-900 text-white section-padding">
+        <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+            <h2 class="text-2xl lg:text-3xl font-bold mb-4">Restez informé</h2>
+            <p class="text-gray-300 mb-8">Inscrivez-vous à notre newsletter pour recevoir nos dernières actualités et conseils.</p>
+            
+            <form onsubmit="subscribeNewsletter(event)" class="max-w-md mx-auto flex gap-4" name="newsletter" netlify>
+                <input type="email" name="email" placeholder="Votre adresse email" required 
+                       class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                <button type="submit" class="btn-primary whitespace-nowrap">
+                    <i class="fas fa-paper-plane mr-2"></i>S'inscrire
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo et description -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <img class="h-10 w-auto" src="./assets/images/logo-white.png" alt="I.B.G Logo">
+                        <span class="ml-3 text-xl font-bold">I.B.G</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Institut spécialisé dans l'accompagnement des entreprises, la formation professionnelle et le développement du secteur privé.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="./about/index.html" class="text-gray-300 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="./services/conseil.html" class="text-gray-300 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="./formations/catalogue.html" class="text-gray-300 hover:text-white transition-colors">Formations</a></li>
+                        <li><a href="./evenements/agenda.html" class="text-gray-300 hover:text-white transition-colors">Événements</a></li>
+                        <li><a href="./ressources/blog.html" class="text-gray-300 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary-400"></i>
+                            123 Rue de l'Innovation, Ville
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary-400"></i>
+                            +33 1 23 45 67 89
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-400"></i>
+                            contact@ibg-institut.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 I.B.G Institut. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
