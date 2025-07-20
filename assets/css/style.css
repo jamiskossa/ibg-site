@@ -1,9 +1,9 @@
-/* Configuration Tailwind personnalisée */
+/* Configuration Tailwind avec palette IBG */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Variables CSS personnalisées */
+/* Variables CSS IBG */
 :root {
     --ibg-blue: #0033A0;
     --ibg-lightblue: #4F9DDC;
@@ -14,61 +14,107 @@
     --ibg-white: #FFFFFF;
 }
 
-/* Classes personnalisées */
-.text-primary-900 { color: var(--ibg-blue); }
-.text-primary-600 { color: var(--ibg-medium-blue); }
-.text-secondary-400 { color: var(--ibg-lightblue); }
-.text-secondary-600 { color: var(--ibg-lightblue); }
+/* Classes utilitaires IBG */
+.text-ibg-blue { color: var(--ibg-blue); }
+.text-ibg-lightblue { color: var(--ibg-lightblue); }
+.text-ibg-red { color: var(--ibg-red); }
+.text-ibg-medium-blue { color: var(--ibg-medium-blue); }
+.text-ibg-gray { color: var(--ibg-gray); }
 
-.bg-primary-900 { background-color: var(--ibg-blue); }
-.bg-primary-800 { background-color: var(--ibg-medium-blue); }
-.bg-primary-600 { background-color: var(--ibg-medium-blue); }
-.bg-primary-50 { background-color: rgba(79, 157, 220, 0.1); }
-.bg-secondary-50 { background-color: rgba(79, 157, 220, 0.1); }
-.bg-secondary-100 { background-color: rgba(79, 157, 220, 0.2); }
+.bg-ibg-blue { background-color: var(--ibg-blue); }
+.bg-ibg-lightblue { background-color: var(--ibg-lightblue); }
+.bg-ibg-red { background-color: var(--ibg-red); }
+.bg-ibg-medium-blue { background-color: var(--ibg-medium-blue); }
 
-.hover\:text-primary-600:hover { color: var(--ibg-medium-blue); }
-.hover\:text-primary-700:hover { color: var(--ibg-blue); }
-.hover\:bg-primary-50:hover { background-color: rgba(79, 157, 220, 0.1); }
-
-/* Boutons personnalisés */
-.btn-primary {
-    @apply bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
-    background-color: var(--ibg-red);
+/* Gradients IBG */
+.gradient-main {
+    background: linear-gradient(135deg, var(--ibg-blue) 0%, var(--ibg-lightblue) 100%);
 }
 
-.btn-primary:hover {
-    background-color: var(--ibg-pink);
+.gradient-accent {
+    background: linear-gradient(135deg, var(--ibg-red) 0%, var(--ibg-pink) 100%);
 }
 
-.btn-secondary {
-    @apply bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
-    background-color: var(--ibg-lightblue);
+.gradient-soft {
+    background: linear-gradient(180deg, var(--ibg-lightblue) 0%, var(--ibg-white) 100%);
 }
 
-.btn-secondary:hover {
-    background-color: var(--ibg-medium-blue);
+/* Boutons IBG */
+.btn-ibg-primary {
+    background: var(--ibg-red);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(240, 74, 58, 0.3);
 }
 
-.btn-outline {
-    @apply border-2 border-white text-white hover:bg-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+.btn-ibg-primary:hover {
+    background: var(--ibg-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(240, 74, 58, 0.4);
 }
 
-.btn-outline:hover {
-    color: var(--ibg-blue);
+.btn-ibg-secondary {
+    background: var(--ibg-lightblue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 157, 220, 0.3);
 }
 
-/* Cards avec effets */
-.card {
-    @apply bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2;
+.btn-ibg-secondary:hover {
+    background: var(--ibg-medium-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 157, 220, 0.4);
+}
+
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* Cards IBG */
+.card-ibg {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 51, 160, 0.1);
+    transition: all 0.3s ease;
     border: 1px solid rgba(79, 157, 220, 0.1);
 }
 
-/* Carte du Président */
+.card-ibg:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 51, 160, 0.15);
+}
+
+/* Carte Président */
 .president-card {
-    @apply bg-gradient-to-br from-primary-900 via-primary-800 to-primary-600 text-white rounded-2xl p-8 shadow-2xl;
+    background: linear-gradient(135deg, var(--ibg-blue) 0%, var(--ibg-medium-blue) 50%, var(--ibg-lightblue) 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 32px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 51, 160, 0.3);
 }
 
 .president-card::before {
@@ -83,80 +129,33 @@
 }
 
 .president-photo {
-    @apply w-40 h-40 rounded-full object-cover border-4 border-white/30 shadow-xl;
-    backdrop-filter: blur(10px);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Réseaux sociaux */
-.social-links {
-    @apply flex justify-center space-x-4;
+.president-photo:hover {
+    transform: scale(1.05);
 }
 
-.social-links a {
-    @apply w-12 h-12 rounded-full flex items-center justify-center text-white transition-all duration-300 transform hover:scale-110;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-}
-
-.social-links a:hover {
-    background: rgba(255,255,255,0.2);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-}
-
-.social-links .facebook:hover {
-    background: #1877F2;
-    border-color: #1877F2;
-}
-
-.social-links .youtube:hover {
-    background: #FF0000;
-    border-color: #FF0000;
-}
-
-.social-links .linkedin:hover {
-    background: #0A66C2;
-    border-color: #0A66C2;
-}
-
-/* Animations personnalisées */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.animate-on-scroll.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Gradients personnalisés */
-.gradient-main {
-    background: linear-gradient(135deg, var(--ibg-blue) 0%, var(--ibg-medium-blue) 50%, var(--ibg-lightblue) 100%);
-}
-
-.gradient-accent {
-    background: linear-gradient(135deg, var(--ibg-red) 0%, var(--ibg-pink) 100%);
-}
-
-/* Section padding */
-.section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
-}
-
-/* Slideshow styles */
+/* Slideshow Banner */
 .slideshow-container {
     position: relative;
     max-width: 100%;
     margin: auto;
     overflow: hidden;
-    border-radius: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 .slide {
     display: none;
     position: relative;
-    animation: slideIn 0.5s ease-in-out;
+    animation: slideIn 1s ease-in-out;
 }
 
 .slide.active {
@@ -165,7 +164,7 @@
 
 .slide img {
     width: 100%;
-    height: 400px;
+    height: 500px;
     object-fit: cover;
 }
 
@@ -174,20 +173,20 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 51, 160, 0.8));
+    background: linear-gradient(transparent, rgba(0, 51, 160, 0.9));
     color: white;
-    padding: 2rem;
+    padding: 40px;
 }
 
 @keyframes slideIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 /* Dots indicators */
 .dots-container {
     text-align: center;
-    padding: 1rem 0;
+    padding: 20px 0;
 }
 
 .dot {
@@ -195,17 +194,18 @@
     height: 15px;
     width: 15px;
     margin: 0 5px;
-    background-color: #bbb;
+    background-color: rgba(160, 160, 160, 0.5);
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .dot.active, .dot:hover {
     background-color: var(--ibg-red);
+    transform: scale(1.2);
 }
 
-/* Chat widget styles */
+/* Chat Widget */
 .chat-widget {
     position: fixed;
     bottom: 20px;
@@ -217,11 +217,11 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: var(--ibg-red);
+    background: linear-gradient(135deg, var(--ibg-red), var(--ibg-pink));
     color: white;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(240, 74, 58, 0.3);
+    box-shadow: 0 8px 25px rgba(240, 74, 58, 0.4);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -231,86 +231,165 @@
 
 .chat-button:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(240, 74, 58, 0.4);
+    box-shadow: 0 12px 35px rgba(240, 74, 58, 0.5);
 }
 
 .chat-window {
     position: absolute;
     bottom: 70px;
     right: 0;
-    width: 300px;
-    height: 400px;
+    width: 350px;
+    height: 450px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     display: none;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .chat-window.active {
     display: flex;
+    animation: chatSlideIn 0.3s ease-out;
+}
+
+@keyframes chatSlideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .chat-header {
-    background: var(--ibg-blue);
+    background: linear-gradient(135deg, var(--ibg-blue), var(--ibg-medium-blue));
     color: white;
-    padding: 1rem;
-    border-radius: 10px 10px 0 0;
-    font-weight: bold;
+    padding: 20px;
+    font-weight: 600;
 }
 
 .chat-body {
     flex: 1;
-    padding: 1rem;
+    padding: 20px;
     overflow-y: auto;
+    background: #f8f9fa;
 }
 
 .chat-input {
-    padding: 1rem;
+    padding: 20px;
     border-top: 1px solid #eee;
+    background: white;
 }
 
 .chat-input input {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-/* Responsive improvements */
+.chat-input input:focus {
+    border-color: var(--ibg-lightblue);
+}
+
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover Effects */
+.hover-lift:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(79, 157, 220, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Section Padding */
+.section-padding {
+    padding: 80px 16px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .section-padding {
-      @apply py-12 px-4;
+        padding: 60px 16px;
     }
-  
-    .slide-content {
-      padding: 1rem;
-    }
-  
-    .chat-window {
-      width: 280px;
-      height: 350px;
-    }
-
+    
     .president-card {
-        @apply p-6;
+        padding: 24px;
+        text-align: center;
     }
-
+    
     .president-photo {
-        @apply w-32 h-32;
+        width: 120px;
+        height: 120px;
     }
-
-    .social-links a {
-        @apply w-10 h-10;
+    
+    .slide img {
+        height: 300px;
+    }
+    
+    .slide-content {
+        padding: 20px;
+    }
+    
+    .chat-window {
+        width: 300px;
+        height: 400px;
     }
 }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
+@media (max-width: 480px) {
+    .chat-window {
+        width: 280px;
+        right: -10px;
+    }
 }
 
-/* Loading animation */
+/* Navigation Mobile */
+.mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Loading Animation */
 .loading {
     display: inline-block;
     width: 20px;
@@ -325,57 +404,13 @@ html {
     to { transform: rotate(360deg); }
 }
 
-/* Hover effects pour les cartes d'équipe */
-.card.group:hover {
-    transform: translateY(-8px) scale(1.02);
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-.card.group:hover .president-photo,
-.card.group:hover img {
-    transform: scale(1.1);
-}
-
-/* Animation pour les éléments de valeurs */
-.text-center.animate-on-scroll:hover .bg-primary-100,
-.text-center.animate-on-scroll:hover .bg-secondary-100,
-.text-center.animate-on-scroll:hover .bg-purple-100,
-.text-center.animate-on-scroll:hover .bg-orange-100 {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* Styles pour les partenaires */
-.animate-on-scroll img {
-    transition: all 0.3s ease;
-}
-
-.animate-on-scroll:hover img {
-    filter: grayscale(0%) !important;
-    transform: scale(1.05);
-}
-
-/* Styles pour les certifications */
-.card.text-center.animate-on-scroll:hover i {
-    transform: scale(1.2) rotate(5deg);
-    transition: transform 0.3s ease;
-}
-
-/* Amélioration de l'accessibilité */
-@media (prefers-reduced-motion: reduce) {
-    .animate-on-scroll,
-    .card,
-    .president-photo,
-    .social-links a,
-    * {
-        animation: none !important;
-        transition: none !important;
-        transform: none !important;
-    }
-}
-
-/* Focus states pour l'accessibilité */
-a:focus,
-button:focus {
+/* Focus states */
+*:focus {
     outline: 2px solid var(--ibg-lightblue);
     outline-offset: 2px;
 }
@@ -384,20 +419,8 @@ button:focus {
 @media print {
     .no-print,
     nav,
-    footer,
-    .social-links,
-    .chat-widget {
+    .chat-widget,
+    .slideshow-container {
         display: none !important;
-    }
-    
-    .president-card {
-        background: white !important;
-        color: black !important;
-        border: 2px solid var(--ibg-blue);
-    }
-    
-    .card {
-        break-inside: avoid;
-        margin-bottom: 1rem;
     }
 }
